@@ -201,6 +201,7 @@ Resources:
     Properties:
       ServiceToken: !GetAtt GetAPIKeyFunction.Arn
       Region: !Ref "AWS::Region"
+
   GetAPIKeyFunction:
     Type: AWS::Lambda::Function
     DependsOn:
@@ -246,6 +247,7 @@ Resources:
               logger.info('Returning response status of: {}'.format(responseStatus))
               # Send result to stack
               cfnresponse.send(event, context, responseStatus, responseData)
+
   GetAPIKeyExecutionRole:
       Type: AWS::IAM::Role
       Properties:
